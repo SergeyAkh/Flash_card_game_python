@@ -1,0 +1,63 @@
+<MyLayout>
+	BoxLayout:
+		orientation: "vertical"
+		size: root.width, root.height
+	
+		Label:
+			id: name_label
+			font_name:'Arial'
+			text: ""
+			font_size: 32
+
+		Label:
+			id: hint_label
+			font_name:'Arial'
+			text: ""
+			font_size: 24
+			
+		Label:
+			id: answer_label
+			font_name:'Arial'
+			text: ""
+			font_size: 24
+						
+		TextInput:
+			id: name_input
+			multiline: False
+			size_hint: (1, .5)
+            
+
+		Button:
+			size_hint: (.5, .5)
+			font_size: 32
+			text: "Answer"
+            pos_hint: {"center_x":.5,"center_y":.6}
+			on_press: root.answer()
+            
+    	Button:
+    		size_hint: (.5, .5)
+    		font_size: 32
+            pos_hint: {"center_x":.5,"center_y":.6}
+    		text: "Next card"
+            on_press: root.next_word()
+
+    	Button:
+    		size_hint: (.5, .5)
+    		font_size: 32
+            pos_hint: {"center_x":.5,"center_y":.6}
+    		text: "Hint"
+    		on_press: root.hint()
+			
+    	BoxLayout:
+            orientation: "horizontal"
+            size_hint_x: .5
+            
+            Label:
+                id: switch_label
+                text: "Hebrew to Russian"
+            
+            Switch:
+                id: switch_id
+                active: True
+                font_size: 32
+                on_active: root.switch_on(self, self.active)
