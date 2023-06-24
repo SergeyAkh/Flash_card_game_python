@@ -17,7 +17,7 @@ class Data_operations():
         if name == '':
             self.ids.answer_label.text = 'Your answer'
 
-        elif name.lower() in self.right_word:
+        elif name.lower() == self.right_word:
             self.ids.answer_label.text = 'Correct'
             self.next_word()
         else:
