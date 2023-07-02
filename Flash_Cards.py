@@ -91,7 +91,7 @@ class MyLayout(Widget):
         self.scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
         self.credentials = ServiceAccountCredentials.from_json_keyfile_name(
-            r'G:\My Drive\Flash Card Game\To_releese\credential.json', self.scope)
+            r'credential.json', self.scope)
         self.client = gspread.authorize(self.credentials)
         self.Sheet_ID = "Sheet ID"
         self.spreadsheet = self.client.open_by_key(self.Sheet_ID).get_worksheet(0)
