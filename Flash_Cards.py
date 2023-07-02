@@ -93,7 +93,7 @@ class MyLayout(Widget):
         self.credentials = ServiceAccountCredentials.from_json_keyfile_name(
             r'G:\My Drive\Flash Card Game\To_releese\credential.json', self.scope)
         self.client = gspread.authorize(self.credentials)
-        self.Sheet_ID = "1bKL7pCOHBFQTwfaL2Lr9mBMPCNagV16F7VjihIp-tYg"
+        self.Sheet_ID = "Sheet ID"
         self.spreadsheet = self.client.open_by_key(self.Sheet_ID).get_worksheet(0)
         self.df = pd.DataFrame(self.spreadsheet.get_all_records())
         self.df = Data_operations.create_and_fill_col(self)
