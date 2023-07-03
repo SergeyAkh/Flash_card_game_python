@@ -66,10 +66,13 @@ class Data_operations():
             num_row = num_row + 2
             val = self.spreadsheet.cell(num_row, num_col).value
             val = int(0 if val is None else val)
+            self.df[self.df.columns[num_col-1]] = self.df[self.df.columns[num_col-1]].fillna(0)
             if sign == None:
+                self.df.loc[num_row - 2, self.df.columns[num_col-1]] += 1
                 return self.spreadsheet.update_cell(num_row, num_col, val + 1)
             else:
                 if val > 0:
+                    self.df.loc[num_row - 2, self.df.columns[num_col-1]] -= 1
                     return self.spreadsheet.update_cell(num_row, num_col, val - 1)
                 else:
                     pass
